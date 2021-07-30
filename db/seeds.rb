@@ -1,6 +1,6 @@
 require 'faker'
 
-puts "Clearing old data..."
+puts "🌋 Clearing old data..."
 User.destroy_all
 User.reset_pk_sequence
 Service.destroy_all
@@ -15,7 +15,7 @@ Subscription.reset_pk_sequence
 #
 #   movies = Movie.create([ name: 'Star Wars' ,  name: 'Lord of the Rings' ])
 #   Character.create(name: 'Luke', movie: movies.first)
-puts "Seeding Services..."
+puts "💻 Seeding Services..."
 
 Service.create(name: 'Netflix', description: 'Movies', price: 10, logo: 'https://cdn.vox-cdn.com/thumbor/QuS2QKQys3HhosKiV-2IuKhphbo=/39x0:3111x2048/1400x1050/filters:focal(39x0:3111x2048):format(png)/cdn.vox-cdn.com/uploads/chorus_image/image/49901753/netflixlogo.0.0.png')
 Service.create(name: 'Hulu', description: 'Movies', price: 7, logo: 'https://thisis.hulu.com/img/logo_on-green.png')
@@ -30,13 +30,13 @@ Service.create(name: 'Nintendo Online', description: 'Games', price: 2,  logo: '
 Service.create(name: 'Limewire', description: 'Music', price: 0, logo: 'https://torrentfreak.com/images/limewire.jpg')
 Service.create(name: 'Napster', description: 'Music', price: 0,  logo: 'https://us.napster.com/assets/runway_b2b/home/b2b_homepage/home_facebook-37fa5e73bc84126deb6442674a3e15c97be1e4d29eebfd4f2db24bed442de7c6.png')
 
-puts "Seeding Users..."
+puts "🙇 Seeding Users..."
 
 10.times do
-User.create(username: Faker::Name.unique.name , password_digest: "asdfghjkl")
+User.create(username: Faker::Name.unique.name , password_digest: "123")
 end
 
-puts "Seeding Subscription..."
+puts "💸 Seeding Subscription..."
 
 20.times do
     Subscription.create( period: "monthly", user_id: User.ids.sample, service_id: Service.ids.sample)
@@ -46,4 +46,4 @@ end
 end
 
 
-puts "Seeing Complete!"
+puts "🙌 Seeing Complete!"

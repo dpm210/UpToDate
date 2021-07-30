@@ -1,5 +1,5 @@
 class SubscriptionSerializer < ActiveModel::Serializer
-  attributes :id, :price, :period
-  has_one :users
-  has_one :services
+  attributes :id, :period
+  has_one :user
+  has_one :service
 end
