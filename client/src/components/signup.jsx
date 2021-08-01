@@ -4,14 +4,22 @@ function SignUp (){
     
     return(
         <div>
-            <h1>Sign Up</h1>
+        <h4 className="sign-in-out">Sign Up</h4>
             <form>
-                <input name='username' placeholder='Username'></input>
-                <input name='password' placeholder='Password'></input>
-                <button type='submit'>Sign Up</button>
-            </form>
-        </div>
-    )
+            <div className="ui input">
+                <input type="text" name='username' placeholder='Username'/>
+            </div>
+            <br/>
+            <br/>
+            <div className="ui input">
+                <input type="text" name='password' placeholder='Password'/>
+            </div>
+            <br/>
+            <br/>
+             <button className="ui violet button" type='submit'>Sign Up</button>
+         </form>
+    </div>
+  )
 }
 
 

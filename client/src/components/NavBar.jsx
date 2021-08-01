@@ -6,25 +6,33 @@ function NavBar(){
 
     return(
         <div>
-            <nav className='NavBar'>
+            <nav id="navbar" className="ui inverted segment">
                 <Link to='/'>
+                    <div className='logo-div'>
                     <img src={image} className='logo' alt='logo'></img>
+                    <h3 className='logo-name'>UPtoDate</h3>
+                    </div>
                 </Link>
 
                 <Link to='/'>
-                <button className='button'>Home</button>
+                {/* <h1 className="nav-button">Home</h1> */}
+                <button id="nav-button"className='ui violet button'>Home</button>
                 </Link>
 
                 <Link to='/profile'>
-                <button className='button'>Profile</button>
+                {/* ui violet button id="nav-button"*/}
+                <button id="nav-button"className='ui violet button'>Profile</button>
+                {/* <h1 className="nav-button">Profile</h1> */}
                 </Link>
 
                 <Link to='/signin'>
-                <button className='button'>Signin</button>
+                <button id="nav-button"className='ui violet button'>Signin</button>
+                {/* <h1 className="nav-button">Signin</h1> */}
                 </Link>
                 
                 <Link to='/signup'>
-                <button className='button'>Signup</button>
+                <button id="nav-button"className='ui violet button'>Signup</button>
+                {/* <h1 className="nav-button">Signup</h1> */}
                 </Link>
             </nav>
         </div>

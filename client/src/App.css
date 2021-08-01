@@ -37,8 +37,6 @@
   }
 }
 
-
-
 #service-logo{
   width: 250px;
   height: 250px;
@@ -47,8 +45,66 @@
 .logo{
   width: 150px;
   height: 100px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  /* float: left; */
+}
+@import url('https://fonts.googleapis.com/css2?family=Righteous&family=Satisfy&display=swap');
+.logo-name{
+  color: rgb(101,52,202);
+  margin-top: -20px;
+  font-size: 25px;
+  margin-bottom: 0px;
+  position: absolute;
+  left: 45px;
+  font-family: 'Righteous';
+    /* right: 150px; */
 }
 
-.NavBar{
-  
+.sign-in-out{
+  font-family: 'Righteous';
+  font-size: 60px;
+}
+.logo-div{
+  float: left;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+.nav-button{
+  display: inline;
+  padding: 8px;
+  color:rgb(101,52,202);
+  height: 20px;
+  position: relative;
+  top: 0px;
+}
+
+#nav-button{
+  position: relative;
+  top: 50px;
+}
+
+#navbar{
+  background-color: rgb(0, 0, 0);
+  padding-bottom: 100px;
+}
+
+/* #service-cards{
+} */
+
+#id-card{
+  padding:0;
+  margin: 10px;
+  display:inline-block;
+  float:left;
+}
+
+#id-card{
+  width: 250px;
+  height: 350px;
+}
+
+#img-div{
+  width: 250px;
+  height: 200px;
 }

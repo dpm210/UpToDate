@@ -3,11 +3,19 @@
 function SignIn (){
     return(
         <div>
-            <h1>Sign In</h1>
+            <h4 className="sign-in-out">Sign In</h4>
             <form>
-                <input name='username' placeholder='Username'></input>
-                <input name='password' placeholder='Password'></input>
-                <button type='submit'>Sign In</button>
+            <div className="ui input">
+                <input type="text" name='username' placeholder='Username'/>
+            </div>
+            <br/>
+            <br/>
+            <div className="ui input">
+                <input type="text" name='password' placeholder='Password'/>
+            </div>
+            <br/>
+            <br/>
+                <button className="ui violet button" type='submit'>Sign In</button>
             </form>
         </div>
     )
