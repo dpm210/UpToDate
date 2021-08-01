@@ -1,5 +1,3 @@
-// import react from "react";
-import {useState} from 'react'
 
 
 function ServiceCard({service, handleClick, handleAdd}){
@@ -7,7 +5,7 @@ function ServiceCard({service, handleClick, handleAdd}){
 
     return(
         <div>
-            <img src={service.logo} />
+            <img id='service-logo'src={service.logo} alt="service-logo" />
             <h1>name</h1>
             <h3>{service.name}</h3>
             <h1>description</h1>

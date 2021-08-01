@@ -1,6 +1,6 @@
 import React from "react";
 import {useState, useEffect} from "react"
-import ServiceCard from "./ServiceCard";
+import ServiceCard from  './serviceCard';
 
 function ServiceContainer (){
 const serviceUrl = 'http://localhost:3000/services'
@@ -34,6 +34,7 @@ const [added, setAdded] = useState([])
 
     const serviceCards = services.map(service => 
      <ServiceCard 
+        key={service.id}
         service={service}
         handleClick={handleClick}
         handleAdd = {handleAdd}

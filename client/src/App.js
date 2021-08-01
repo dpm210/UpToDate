@@ -1,10 +1,10 @@
 // import logo from './logo.svg';
 import './App.css';
-import ServiceContainer from './components/ServicesContainer'
 import NavBar from './components/NavBar'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import SignIn from './components/Signin'
-import SignUp from './components/Signup'
+import SignIn from './components/signin'
+import SignUp from './components/signup'
+import ServiceContainer from './components/servicesContainer'
 
 
 function App() {
