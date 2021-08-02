@@ -1,20 +1,17 @@
 class UsersController < ApplicationController
     rescue_from ActiveRecord::RecordNotFound, with: :record_not_found
 
-
     def index
         users = User.all
         render json: users
     end 
 
     def create
-        # byebug
-        user = User.create(userparams)
-        if user.valid? && user.authenticate(params[:password])
-            # session[:user_id] = user.id
-            render json: user, status: :created
+        newUser = User.create(userparams)
+        if newUser.valid?
+            render json: newUser, status: :created
         else
-            render json: {errors: user.errors.full_messages}, status: :unprocessable_entity
+            render json: {errors: newUser.errors.full_messages}, status: :unprocessable_entity
         end 
     end 
 

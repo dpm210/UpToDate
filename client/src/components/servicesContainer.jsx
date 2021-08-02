@@ -13,7 +13,7 @@ const [services, setServices] = useState([])
         .then(res => res.json())
         .then(data => setServices(data))
         }, []);
-    console.log(services);
+    // console.log(services);
 // let subList = services.map(service => {return name={service.name}})
 
 const [added, setAdded] = useState([])
@@ -41,7 +41,7 @@ const [added, setAdded] = useState([])
         service={service}
         // handleClick={handleClick}
         handleAdd = {handleAdd}
-        // key={service.id}
+        key={service.id}
         // name={service.name}
         // price={service.price}
         // logo={service.logo}

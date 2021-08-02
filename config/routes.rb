@@ -8,7 +8,6 @@ Rails.application.routes.draw do
   post "/signin", to: "log_in#create"
   delete "/signin", to: "log_in#destroy"
 
-  # post "/signup", to: "log_up#create"
 
   
   # post "/login", to: "sessions#create"

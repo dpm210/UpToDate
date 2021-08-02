@@ -27,7 +27,7 @@ function SignIn({setCurrentUser}){
 });
     const userData = await res.json();
       if(userData.id){
-        console.log(userData)
+        // console.log(userData)
         setCurrentUser(userData)
         history.push('/')
     }  else {

@@ -21,14 +21,14 @@ function App() {
   return (
   <div className="App">
     <Router>
-      <NavBar />
+      <NavBar currentUser={currentUser} user={user} />
         <Switch>
           <Route exact path='/'>
             <ServicesContainer user={user} />
           </Route>
           {/* <Route path='/profile' component={()=><Profile />}/> */}
           <Route path='/Signup'>
-            <SignUp />
+            <SignUp setCurrentUser={setCurrentUser}/>
           </Route>
           <Route path='/Signin'>
             <SignIn setCurrentUser={setCurrentUser} />

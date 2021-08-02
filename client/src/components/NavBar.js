@@ -2,7 +2,7 @@ import React from "react";
 import {Link} from 'react-router-dom';
 import image from '../images/up.png'
 
-function NavBar(){
+function NavBar({user, currentUser}){
 
 
     return(
@@ -14,6 +14,9 @@ function NavBar(){
                     <h3 className='logo-name'>UPtoDate</h3>
                     </div>
                 </Link>
+   {/* //todo to display what the user sees if login              
+                {currentUser ? ( 
+                <> */}
 
                 <Link to='/'>
                 {/* <h1 className="nav-button">Home</h1> */}
@@ -25,16 +28,25 @@ function NavBar(){
                 <button id="nav-button"className='ui violet button'>Profile</button>
                 {/* <h1 className="nav-button">Profile</h1> */}
                 </Link>
+{/* 
+   //todo to display what the user sees if login              
+                </>
+                ) : ( 
+                <> */}
 
                 <Link to='/signin'>
                 <button id="nav-button"className='ui violet button'>Signin</button>
                 {/* <h1 className="nav-button">Signin</h1> */}
                 </Link>
-                
                 <Link to='/signup'>
                 <button id="nav-button"className='ui violet button'>Signup</button>
                 {/* <h1 className="nav-button">Signup</h1> */}
                 </Link>
+{/* 
+//todo to display what the user sees if login              
+                </>
+                )} */}
+
             </nav>
         </div>
     )
