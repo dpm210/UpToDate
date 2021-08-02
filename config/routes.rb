@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
-  resources :subscriptions, only:[:index]
+  resources :subscriptions, only:[:index, :create]
   resources :services, only: [:index]
   resources :users, only: [:show, :index, :create]
+  resources :log_in, only: [:create]
   
   post "/login", to: "sessions#create"
   delete "/logout", to: "sessions#destroy"

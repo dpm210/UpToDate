@@ -7,20 +7,20 @@ import ServiceCard from "./serviceCard"
 function ServiceContainer ({user}){
 const serviceUrl = 'http://localhost:3000/services'
 const [services, setServices] = useState([])
-useEffect(() => {
-    fetch(serviceUrl)
-    .then(res => res.json())
-    .then(data => setServices(data))
-    }, []);
-console.log(services);
+
+    useEffect(() => {
+        fetch(serviceUrl)
+        .then(res => res.json())
+        .then(data => setServices(data))
+        }, []);
+    console.log(services);
 // let subList = services.map(service => {return name={service.name}})
 
 const [added, setAdded] = useState([])
     function handleAdd(){
         let addSubData = {
-            user_id: user.id,
-            service_id: services.id,
-            period: null
+            "user_id": user.id,
+            "service_id": services.id,
         }
         // console.log(added)
         fetch('http://localhost:3000/subscriptions',{
@@ -31,6 +31,7 @@ const [added, setAdded] = useState([])
             },
             body: JSON.stringify(addSubData)
         }).then(res => res.json())
+        .then(console.log(addSubData))
 }
     // function handleClick(){
     //     handleAdd()
