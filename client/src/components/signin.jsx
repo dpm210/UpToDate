@@ -1,40 +1,39 @@
-import {useHistory} from 'react-router-dom'
-import React, {useState} from 'react';
+import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom'
 // import {Input, Form} from './styled';
-
-
 // function SignIn (){
 
-    function SignIn({setCurrentUser}){
-        const [username, setUserName] = useState('')
-        const [password, setPassword] = useState('')
-        const [errors, setErrors] = useState(null)
+function SignIn({setCurrentUser}){
+    const [username, setUserName] = useState('')
+    const [password, setPassword] = useState('')
+    const [errors, setErrors] = useState(null)
+    
+    const history = useHistory();
 
-        const history = useHistory();
+    async function handleSubmit(e){
+     e.preventDefault()
+     const user = {
+     username:username,
+     password
+}
+    console.log(user)
+    const res = await fetch(`http://localhost:3000/signin`,{
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+  },
+    body: JSON.stringify(user)
 
-        async function handleSubmit(e){
-            e.preventDefault()
-            const user = {
-                user_name:username,
-                password
-            }
-            const res = await fetch(`http://localhost:3000/log_in`,{
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({user})
-            });
-            const userData = await res.json();
-            if(userData.id){
-                console.log(userData)
-                setCurrentUser(userData)
-                history.push('/')
-            } else {
-                setErrors(userData.message)
-            }
-
-        };
+});
+    const userData = await res.json();
+      if(userData.id){
+        console.log(userData)
+        setCurrentUser(userData)
+        history.push('/')
+    }  else {
+        setErrors(userData.message)
+  }
+};
 
     return(
         <div>

@@ -33,7 +33,7 @@ Service.create(name: 'Napster', description: 'Music', price: 0,  logo: 'https://
 puts "🙇 Seeding Users..."
 
 10.times do
-User.create(username: Faker::Name.unique.name , password_digest: "123")
+User.create(username: Faker::Name.unique.name , password_digest: "test")
 end
 
 puts "💸 Seeding Subscription..."
