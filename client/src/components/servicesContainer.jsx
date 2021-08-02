@@ -1,62 +1,63 @@
 import React from "react";
 import {useState, useEffect} from "react"
-import ServiceCard from  './serviceCard';
+import ServiceCard from "./serviceCard"
 
-function ServiceContainer (){
+
+
+function ServiceContainer ({user}){
 const serviceUrl = 'http://localhost:3000/services'
 const [services, setServices] = useState([])
-
 useEffect(() => {
     fetch(serviceUrl)
     .then(res => res.json())
     .then(data => setServices(data))
     }, []);
-
 console.log(services);
-
 // let subList = services.map(service => {return name={service.name}})
 
 const [added, setAdded] = useState([])
-    function handleAdd(services){
-        let addSub = {
-            name: services,
-            price: services.price,
-            description: services.description,
-            logo: services.logo
+    function handleAdd(){
+        let addSubData = {
+            user_id: user.id,
+            service_id: services.id,
+            period: null
         }
-        setAdded(addSub)
-        console.log(added)   
+        // console.log(added)
+        fetch('http://localhost:3000/subscriptions',{
+            method: 'POST',
+            headers:{
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            },
+            body: JSON.stringify(addSubData)
+        }).then(res => res.json())
 }
-
-    function handleClick(){
-        handleAdd()
-    }
-
-    const serviceCards = services.map(service => 
-     <ServiceCard 
-        key={service.id}
+    // function handleClick(){
+    //     handleAdd()
+    // }
+    const serviceCards = services.map(service =>
+     <ServiceCard
         service={service}
-        handleClick={handleClick}
+        // handleClick={handleClick}
         handleAdd = {handleAdd}
-        // key={service.id} 
-        // name={service.name} 
-        // price={service.price} 
+        // key={service.id}
+        // name={service.name}
+        // price={service.price}
         // logo={service.logo}
      />
     )
-    
     return(
         <div>
         {serviceCards}
         </div>
     )
 }
-
-
-
-
-
-
-
 export default ServiceContainer;
- 
+
+
+
+
+
+
+
+
