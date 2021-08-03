@@ -31,7 +31,7 @@ function SignIn({setCurrentUser}){
         setCurrentUser(userData)
         history.push('/')
     }  else {
-        setErrors(userData.message)
+        setErrors(userData.error)
   }
 };
 
@@ -45,11 +45,12 @@ function SignIn({setCurrentUser}){
             <br/>
             <br/>
             <div className="ui input">
-                <input type="text" name='password' value={password} placeholder='Password' onChange={(e) => setPassword(e.target.value)}/>
+                <input type="password" name='password' value={password} placeholder='Password' onChange={(e) => setPassword(e.target.value)}/>
             </div>
             <br/>
             <br/>
                 <button className="ui violet button" type='submit'>Sign In</button>
+                <p>{errors}</p>
             </form>
         </div>
     )

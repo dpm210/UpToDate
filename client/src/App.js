@@ -6,11 +6,15 @@ import SignIn from './components/signin';
 import SignUp from './components/signup';
 import ServicesContainer from './components/servicesContainer';
 import 'semantic-ui-css/semantic.min.css';
+import { useHistory } from 'react-router-dom'
+
 
 
 function App() {
   const [user, setUser] = useState([])
   const [currentUser, setCurrentUser] = useState([])
+  const history = useHistory();
+
 
   useEffect(() => {
     fetch('http://localhost:3000/users')
@@ -18,10 +22,21 @@ function App() {
     .then(userData => setUser(userData))
   }, [])
 
+  function handleSignOut(){
+
+    fetch(`http://localhost:3000/signout`, {
+      method: "DELETE",
+    })
+    .then((r) => {
+        setCurrentUser([])
+      })
+    .then(() => {history.push('/')})
+}
+
   return (
   <div className="App">
     <Router>
-      <NavBar currentUser={currentUser} user={user} />
+      <NavBar currentUser={currentUser} user={user} handleSignOut={handleSignOut} />
         <Switch>
           <Route exact path='/'>
             <ServicesContainer user={user} />

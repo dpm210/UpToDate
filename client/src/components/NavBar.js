@@ -2,7 +2,7 @@ import React from "react";
 import {Link} from 'react-router-dom';
 import image from '../images/up.png'
 
-function NavBar({user, currentUser}){
+function NavBar({currentUser, handleSignOut}){
 
 
     return(
@@ -42,11 +42,13 @@ function NavBar({user, currentUser}){
                 <button id="nav-button"className='ui violet button'>Signup</button>
                 {/* <h1 className="nav-button">Signup</h1> */}
                 </Link>
+
+                <button onClick={handleSignOut} id="nav-button" className='ui violet button' >Sign Out</button>
 {/* 
 //todo to display what the user sees if login              
                 </>
                 )} */}
-
+            <div>{currentUser.username}</div>
             </nav>
         </div>
     )

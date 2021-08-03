@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/faker-ruby/faker.git
-  revision: 5169f7b03761b927ffa2bea39cd14b55c6bb0ca5
+  revision: 1a53fb2ca7a560f287b966aa117d353de827b191
   branch: master
   specs:
     faker (2.18.0)
@@ -75,7 +75,7 @@ GEM
       tzinfo (~> 2.0)
       zeitwerk (~> 2.3)
     bcrypt (3.1.16)
-    bootsnap (1.7.6)
+    bootsnap (1.7.7)
       msgpack (~> 1.0)
     builder (3.2.4)
     byebug (11.1.3)
@@ -86,7 +86,7 @@ GEM
     diff-lcs (1.4.4)
     erubi (1.10.0)
     ffi (1.15.3)
-    globalid (0.5.1)
+    globalid (0.5.2)
       activesupport (>= 5.0)
     i18n (1.8.10)
       concurrent-ruby (~> 1.0)
@@ -104,8 +104,8 @@ GEM
     mini_mime (1.1.0)
     minitest (5.14.4)
     msgpack (1.4.2)
-    nio4r (2.5.7)
-    nokogiri (1.11.7-x86_64-darwin)
+    nio4r (2.5.8)
+    nokogiri (1.12.1-x86_64-darwin)
       racc (~> 1.4)
     pg (1.2.3)
     puma (5.4.0)

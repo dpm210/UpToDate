@@ -43,7 +43,12 @@ fetch('http://localhost:3000/users', {
 }
 // console.log(newUser);
 // console.log(newPassword);
+const errorMes = signUpErrors.map((err) => 
+    <p>{err}</p>
 
+)
+
+console.log(errorMes)
     return(
         <div>
         <h4 className="sign-in-out">Sign Up</h4>
@@ -59,6 +64,7 @@ fetch('http://localhost:3000/users', {
             <br/>
             <br/>
              <button className="ui violet button" type='submit'>Sign Up</button>
+             <div>{errorMes}</div>
          </form>
     </div>
  )
