@@ -6,15 +6,12 @@ import SignIn from './components/signin';
 import SignUp from './components/signup';
 import ServicesContainer from './components/servicesContainer';
 import 'semantic-ui-css/semantic.min.css';
-import { useHistory } from 'react-router-dom'
-
-
+import Profile from './components/profile';
 
 function App() {
   const [user, setUser] = useState([])
-  const [currentUser, setCurrentUser] = useState([])
-  const history = useHistory();
-
+  const [currentUser, setCurrentUser] = useState({})
+  // const [loggedIn, setLoggedIn] = useState(false)
 
   useEffect(() => {
     fetch('http://localhost:3000/users')
@@ -22,26 +19,24 @@ function App() {
     .then(userData => setUser(userData))
   }, [])
 
-  function handleSignOut(){
-
-    fetch(`http://localhost:3000/signout`, {
-      method: "DELETE",
-    })
-    .then((r) => {
-        setCurrentUser([])
-      })
-    .then(() => {history.push('/')})
-}
 
   return (
   <div className="App">
     <Router>
-      <NavBar currentUser={currentUser} user={user} handleSignOut={handleSignOut} />
+      <NavBar 
+      setCurrentUser={setCurrentUser} 
+      currentUser={currentUser} 
+      />
         <Switch>
           <Route exact path='/'>
             <ServicesContainer user={user} />
           </Route>
-          {/* <Route path='/profile' component={()=><Profile />}/> */}
+          <Route path='/profile'>
+          <Profile 
+          currentUser={currentUser}
+          setCurrentUser={setCurrentUser}
+          />
+          </Route>
           <Route path='/Signup'>
             <SignUp setCurrentUser={setCurrentUser}/>
           </Route>

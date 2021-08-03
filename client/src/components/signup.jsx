@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom'
 
-function SignUp({setCurrentUser}){
+function SignUp(){
 const [newUser, setNewUser] = useState("")
 const [newPassword, setNewPassword] = useState('')
 const [signUpErrors, setSignUpErrors] = useState([])
@@ -22,7 +22,7 @@ function handleSignUp(e){
     "password": newPassword
 }
 // console.log(signUpUser);
-    console.log(signUpErrors);
+    // console.log(signUpErrors);
     // console.log(data)
 
 fetch('http://localhost:3000/users', {
@@ -48,7 +48,7 @@ const errorMes = signUpErrors.map((err) =>
 
 )
 
-console.log(errorMes)
+// console.log(errorMes)
     return(
         <div>
         <h4 className="sign-in-out">Sign Up</h4>

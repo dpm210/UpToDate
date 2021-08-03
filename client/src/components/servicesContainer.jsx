@@ -5,8 +5,8 @@ import ServiceCard from "./serviceCard"
 
 
 function ServiceContainer ({user}){
-const serviceUrl = 'http://localhost:3000/services'
-const [services, setServices] = useState([])
+    const serviceUrl = 'http://localhost:3000/services'
+    const [services, setServices] = useState([])
 
     useEffect(() => {
         fetch(serviceUrl)
@@ -30,8 +30,8 @@ const [added, setAdded] = useState([])
                 'Accept': 'application/json'
             },
             body: JSON.stringify(addSubData)
-        }).then(res => res.json())
-        .then(console.log(addSubData))
+        })  .then(res => res.json())
+            .then(console.log(addSubData))
 }
     // function handleClick(){
     //     handleAdd()
