@@ -1,18 +1,19 @@
+function MySubscription ({service}){
 
-
-function MySubscription (){
     return(
-        <div>
-            <h1>hi</h1>
+        <div className="service-cards">
+        <div id="id-card" className="ui card">
+            <div className="image"><img id="img-div"src={service.logo} alt="image1"/></div>
+            <div className="content">
+                <div className="header">{service.name}</div>
+                <div className="meta"> $ {service.price}</div>
+                <div className="description">{service.description}</div>
+                <br />
+                <button className="ui violet button" >Remove from My Subscriptions</button>
+            </div>
         </div>
+    </div>
     )
 }
 
-
-
-
-
-
-
-export default MySubscription;
- 
+export default MySubscription; 

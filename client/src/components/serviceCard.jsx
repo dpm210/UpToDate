@@ -1,6 +1,6 @@
 
 
-function ServiceCard({service, handleClick, handleAdd}){
+function ServiceCard({service, handleAdd}){
 
 
     return(
