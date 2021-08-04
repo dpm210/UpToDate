@@ -6,15 +6,16 @@ function Profile ({currentUser}){
     const [userProfile, setUserProfile] = useState([])
 
         useEffect(() => {
-            fetch(`http://localhost:3000/users/${currentUser.id}`)
+            const userId = localStorage.getItem('user_id')
+            fetch(`http://localhost:3000/users/${userId}`)
             .then(res => res.json())
-            .then(data => setUserProfile(data.services))
-            }, []); 
+            .then(data => setUserProfile(data.subscriptions))
+            }, []);
 
 
-const serviceUserCards = userProfile.map(service => <MySubscription
-    service={service}
-    key={service.id} 
+const serviceUserCards = userProfile.map(sub => <MySubscription
+    sub={sub}
+    key={sub.id}
     // logo={service.logo}
     // name={service.name}
     // description={service.description}

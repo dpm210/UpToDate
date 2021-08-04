@@ -11,6 +11,7 @@ import Profile from './components/profile';
 function App() {
   const [user, setUser] = useState([])
   const [currentUser, setCurrentUser] = useState({})
+  const [newUser, setNewUser] = useState({})
   // const [loggedIn, setLoggedIn] = useState(false)
 
   useEffect(() => {
@@ -18,6 +19,17 @@ function App() {
     .then(res => res.json())
     .then(userData => setUser(userData))
   }, [])
+
+  useEffect(() => {
+    const userId = localStorage.getItem("user_id")
+    fetch(`http://localhost:3000/me?user_id=${userId}`)
+    .then((res) => {
+      if (res.ok) {
+        res.json()
+        .then((newUser => setCurrentUser(newUser)))
+      }
+    })
+  },[])
 
 
   return (
@@ -29,7 +41,7 @@ function App() {
       />
         <Switch>
           <Route exact path='/'>
-            <ServicesContainer user={user} />
+            <ServicesContainer user={user} currentUser={currentUser} />
           </Route>
           <Route path='/profile'>
           <Profile 

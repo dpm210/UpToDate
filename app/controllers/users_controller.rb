@@ -20,7 +20,7 @@ class UsersController < ApplicationController
         if user
             render json:user, Serializer: :UsersubsSerializer
         else record_not_found
-    end 
+    end
 
     # def show
     #     user = User.find_by(id: session[:id])

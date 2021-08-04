@@ -14,6 +14,7 @@ function NavBar({currentUser, setCurrentUser, handleSignOut}){
         method: "DELETE",
     })
  // .then(res => res.json())
+    localStorage.removeItem("user_id")
      setCurrentUser([]);
      history.push('/signin')
  }

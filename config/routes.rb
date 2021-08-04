@@ -1,11 +1,11 @@
 Rails.application.routes.draw do
-  resources :subscriptions, only:[:index, :create]
+  resources :subscriptions, only:[:index, :create, :destroy]
   resources :services, only: [:index]
   resources :users, only: [:show, :index, :create]
   resources :log_in, only: [:create]
   # resources :sessions, only [:destroy]
   
-  get "/me", to: "users#show"
+  get "/me", to: "sessions#show"
   # post "/signin", to: "log_in#create"
   # delete "/signin", to: "log_in#destroy"
 

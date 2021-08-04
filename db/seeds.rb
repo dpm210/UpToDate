@@ -33,14 +33,14 @@ Service.create(name: 'Napster', description: 'Music', price: 0,  logo: 'https://
 puts "🙇 Seeding Users..."
 
 10.times do
-User.create(username: Faker::Name.unique.name , password: "test")
+User.create(username: Faker::Artist.unique.name , password: "test")
 end
 
 
 puts "💸 Seeding Subscription..."
 
 20.times do
-    Subscription.create( period: "monthly", user_id: User.ids.sample, service_id: Service.ids.sample)
+    Subscription.create(period: "monthly", user_id: User.ids.sample, service_id: Service.ids.sample)
 end
 20.times do
     Subscription.create(period: "Weekly", user_id: User.ids.sample, service_id: Service.ids.sample)

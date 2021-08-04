@@ -4,25 +4,25 @@ import ServiceCard from "./serviceCard"
 
 
 
-function ServiceContainer ({user}){
+function ServiceContainer ({user, currentUser}){
     const serviceUrl = 'http://localhost:3000/services'
     const [services, setServices] = useState([])
-
+    
     useEffect(() => {
         fetch(serviceUrl)
         .then(res => res.json())
         .then(data => setServices(data))
         }, []);
-    // console.log(services);
-// let subList = services.map(service => {return name={service.name}})
 
-const [added, setAdded] = useState([])
-    function handleAdd(){
+        // const [serviceObj, description, logo, name] = services
+        console.log(services)
+    // const addService = services.map((blah) => console.log(blah.id))
+    function handleAdd(service_id){
         let addSubData = {
-            "user_id": user.id,
-            "service_id": services.id,
+            "user_id": currentUser.id,
+            "service_id": service_id,
+            "period": "monthly"
         }
-        // console.log(added)
         fetch('http://localhost:3000/subscriptions',{
             method: 'POST',
             headers:{
@@ -33,9 +33,7 @@ const [added, setAdded] = useState([])
         })  .then(res => res.json())
             .then(console.log(addSubData))
 }
-    // function handleClick(){
-    //     handleAdd()
-    // }
+
     const serviceCards = services.map(service =>
      <ServiceCard
         service={service}

@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom'
-// import {Input, Form} from './styled';
-// function SignIn (){
 
 function SignIn({setCurrentUser}){
     const [username, setUserName] = useState('')
@@ -23,11 +21,12 @@ function SignIn({setCurrentUser}){
             'Content-Type': 'application/json'
   },
     body: JSON.stringify(user)
+})
 
-});
     const userData = await res.json();
       if(userData.id){
         // console.log(userData)
+        localStorage.setItem("user_id", userData.id)
         setCurrentUser(userData)
         history.push('/')
     }  else {

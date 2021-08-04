@@ -22,9 +22,14 @@ class SubscriptionsController < ApplicationController
         end
     end
 
+    def destroy
+        subs = Subscription.find_by(id: params[:id])
+        subs.destroy
+    end
+
     private
 
     def sub_params
-        params.permit(:user_id, :service_id)
+        params.permit(:user_id, :service_id, :period)
     end
 end
