@@ -36,7 +36,7 @@ fetch('http://localhost:3000/users', {
         if(data.errors) {
         setSignUpErrors(data.errors);
     } else {
-        history.push('/')
+        history.push('/signin')
     }
    
   });

@@ -12,7 +12,7 @@ function ServiceCard({service, handleAdd}){
                 <div className="meta"> $ {service.price}</div>
                 <div className="description">{service.description}</div>
                 <br />
-                <button className="ui violet button" onClick={() => handleAdd(service.id)}>Add to My Subscriptions</button>
+                <button onClick={() => handleAdd(service.id)}className="ui violet button">Add to My Subscriptions</button>
             </div>
         </div>
     </div>

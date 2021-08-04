@@ -3,9 +3,8 @@ function MySubscription ({sub}){
     function removeSub(){
         fetch(`http://localhost:3000/subscriptions/${sub.id}`, {
             method: "DELETE",
+            
         })
-
-        // update state
     }
 
     return(

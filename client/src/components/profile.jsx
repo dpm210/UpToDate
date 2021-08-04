@@ -2,7 +2,7 @@ import {useEffect, useState} from 'react'
 import ServiceContainer from './servicesContainer';
 import MySubscription from './MySubscription';
 
-function Profile ({currentUser}){
+function Profile (){
     const [userProfile, setUserProfile] = useState([])
 
         useEffect(() => {
@@ -12,22 +12,54 @@ function Profile ({currentUser}){
             .then(data => setUserProfile(data.subscriptions))
             }, []);
 
+            // console.log(currentUser);
+            // console.log(userProfile);
+            // console.log(userProfile[0]);
+            // console.log(userProfile[0].service);
+            // console.log(userProfile[0].service.price);
 
-const serviceUserCards = userProfile.map(sub => <MySubscription
-    sub={sub}
-    key={sub.id}
-    // logo={service.logo}
-    // name={service.name}
-    // description={service.description}
-    // price={service.price}
+    const sum = userProfile.map(serviceobj => {
+        return(serviceobj.service.price)}
+    )
+
+    let add = 0
+    for (let i = 0; i < sum.length; i++) {
+        add += sum[i];
+    }
+    // console.log(add);
+
+    const serviceUserCards = userProfile.map(sub => 
+        <MySubscription
+            sub={sub}
+            key={sub.id}
     />)
 
+
+    // const test = currentUser.map(sub => 
+    //     <MySubscription
+    //         sub={sub}
+    //         key={sub.id}
+    // />)
+
     return(
+       <div>
+       <br />
+       <br />
+        <div class="ui cards">
+        <div id="spent" class="ui card">
+            <p>Monthly Spend</p>
+            $ {add}
+        <br />
+        <br />
+        </div> 
+         </div>
+        <br />
+        <br />
         <div>
-            <h1>hi</h1>
-            {serviceUserCards}
-            
+            <h1 id="h1">My Subscriptions</h1>
+         <div>{serviceUserCards} </div>
         </div>
+      </div>
     )
 }
 

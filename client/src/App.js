@@ -11,8 +11,21 @@ import Profile from './components/profile';
 function App() {
   const [user, setUser] = useState([])
   const [currentUser, setCurrentUser] = useState({})
-  const [newUser, setNewUser] = useState({})
+  // const [newUser, setNewUser] = useState({})
   // const [loggedIn, setLoggedIn] = useState(false)
+  const [search, setSearch] = useState("")
+
+  const [filter, setFilter] = useState("")
+
+  const [services, setServices] = useState([])
+  const serviceUrl = 'http://localhost:3000/services'
+
+  useEffect(() => {
+      fetch(serviceUrl)
+      .then(res => res.json())
+      .then(data => setServices(data))
+      }, []);
+
 
   useEffect(() => {
     fetch('http://localhost:3000/users')
@@ -31,6 +44,9 @@ function App() {
     })
   },[])
 
+  const filteredservice = services.filter(service => {
+    return (service.name.toLowerCase().includes(search.toLowerCase()))
+  })
 
   return (
   <div className="App">
@@ -38,10 +54,22 @@ function App() {
       <NavBar 
       setCurrentUser={setCurrentUser} 
       currentUser={currentUser} 
+      setSearch={setSearch}
+      search={search}
+      services={services}
+      setServices={setServices}
+      filteredservice={filteredservice}
       />
         <Switch>
           <Route exact path='/'>
-            <ServicesContainer user={user} currentUser={currentUser} />
+            <ServicesContainer 
+            user={user} 
+            currentUser={currentUser} 
+            setFilter={setFilter}
+            filter={filter}
+            services={services}
+            setServices={setServices}
+            />
           </Route>
           <Route path='/profile'>
           <Profile 

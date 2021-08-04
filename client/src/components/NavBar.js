@@ -4,16 +4,14 @@ import image from '../images/up.png'
 import {useHistory} from 'react-router-dom'
 
 
-function NavBar({currentUser, setCurrentUser, handleSignOut}){
+function NavBar({currentUser, setCurrentUser, handleSignOut, search, setSearch, filteredservice}){
     
     const history = useHistory();
-    // console.log(history)
     
     function handleSignOut(){
         fetch(`http://localhost:3000/signout`, {
         method: "DELETE",
     })
- // .then(res => res.json())
     localStorage.removeItem("user_id")
      setCurrentUser([]);
      history.push('/signin')
@@ -31,41 +29,47 @@ function NavBar({currentUser, setCurrentUser, handleSignOut}){
                     </div>
                 </Link>
                 <Link to='/'>
-                {/* <h1 className="nav-button">Home</h1> */}
                 <button id="nav-button"className='ui violet button'>Home</button>
                 </Link>
                
                 <Link to='/profile'>
-                {/* ui violet button id="nav-button"*/}
                 <button id="nav-button"className='ui violet button'>Profile</button>
-                {/* <h1 className="nav-button">Profile</h1> */}
               
                 </Link>
-                <button onClick={handleSignOut} id="nav-button" className='ui violet button' >Sign Out</button>
-        </>
-            ) :  ( 
-                <>  
+                <button onClick={handleSignOut} id="nav-button" className='ui violet button'>Sign Out</button>
+               
+                <div id="searchbar" className='ui input'> 
+                <input onChange={(e) => setSearch(e.target.value)} 
+                type="text" 
+                value={search}
+                placeholder="Search..."/>
+                </div>
+                <div>
+                <h3 id="welcome">Hi,</h3>
+                </div>
+                 </>
+                ) :  ( 
+                  <>  
                   <Link to='/signin'>
                     <div className='logo-div'>
                         <img src={image} className='logo' alt='logo'></img>
                         <h3 className='logo-name'>UPtoDate</h3>
                     </div>
                 </Link>
-
                 <Link to='/signin'>
                 <button id="nav-button"className='ui violet button'>Signin</button>
-                {/* <h1 className="nav-button">Signin</h1> */}
                 </Link>
 
                 <Link to='/signup'>
                 <button id="nav-button"className='ui violet button'>Signup</button>
-                {/* <h1 className="nav-button">Signup</h1> */}
                 </Link>
-                
             </>
              )} 
-                 {/* null)} */}
-            <div>{currentUser.username}</div>
+                <div> 
+                    <div className="current-name">
+                        {currentUser.username}
+                    </div>
+                </div>
             </nav>
         </div>
     )

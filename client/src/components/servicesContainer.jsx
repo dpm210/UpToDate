@@ -1,22 +1,11 @@
 import React from "react";
 import {useState, useEffect} from "react"
 import ServiceCard from "./serviceCard"
+import NavBar from "./NavBar"
 
+function ServiceContainer ({user, currentUser, setFilter, filter, services, setServices}){
 
-
-function ServiceContainer ({user, currentUser}){
-    const serviceUrl = 'http://localhost:3000/services'
-    const [services, setServices] = useState([])
-    
-    useEffect(() => {
-        fetch(serviceUrl)
-        .then(res => res.json())
-        .then(data => setServices(data))
-        }, []);
-
-        // const [serviceObj, description, logo, name] = services
-        console.log(services)
-    // const addService = services.map((blah) => console.log(blah.id))
+        // console.log(services)
     function handleAdd(service_id){
         let addSubData = {
             "user_id": currentUser.id,
@@ -33,24 +22,57 @@ function ServiceContainer ({user, currentUser}){
         })  .then(res => res.json())
             .then(console.log(addSubData))
 }
-
     const serviceCards = services.map(service =>
      <ServiceCard
         service={service}
-        // handleClick={handleClick}
-        handleAdd = {handleAdd}
         key={service.id}
-        // name={service.name}
-        // price={service.price}
-        // logo={service.logo}
-     />
+        handleAdd={handleAdd}
+     />)
+     
+    const catg = services.map(serviceobj => {
+        return(serviceobj.description)}
     )
+
+   const aa = services.filter(serviceobj => console.log(serviceobj.description));
+
+    // {return(serviceobj)}
+    
+// console.log(aa);
+// console.log(catg);
+
     return(
-        <div>
-        {serviceCards}
-        </div>
+        <div>    
+            <div className="h2-text"> 
+            <h1 id="h2">Filter by Category</h1>
+            </div> 
+             <div>
+            <select id="drop-down"className="ui simple dropdown item"
+             onChange={(e) => setFilter(aa)}>
+             {/* onChange={(e) => setSearch(filteredservice)}> */}
+                    <option>
+                        All
+                    </option>
+                        <option>
+                            Movie
+                        </option>
+                        <option>
+                            Music
+                        </option>
+                    <option>
+                        Games
+                    </option>
+            </select>
+            {serviceCards}
+            </div>
+    </div>
     )
 }
+
+
+
+
+
+
 export default ServiceContainer;
 
 

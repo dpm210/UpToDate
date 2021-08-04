@@ -108,3 +108,72 @@
   width: 250px;
   height: 200px;
 }
+
+#searchbar{
+  position: relative;
+  top: 50px;
+  right: 0px;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Righteous&family=Satisfy&display=swap');
+#spent{
+  color: black;
+  margin-top: -20px;
+  font-size: 25px;
+  margin-bottom: 0px;
+  font-family: 'Righteous';
+}
+
+
+@import url('https://fonts.googleapis.com/css2?family=Righteous&family=Satisfy&display=swap');
+#h1{
+  color: rgb(101,52,202);
+  margin-top: -20px;
+  font-size: 40px;
+  margin-bottom: 0px;
+  font-family: 'Righteous';
+  margin-top: 30px;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Righteous&family=Satisfy&display=swap');
+#h2{
+  color: rgb(101,52,202);
+  font-size: 20px;
+  font-family: 'Righteous';
+}
+
+.h2-text{
+  position: relative;
+  margin-bottom: 10px;
+  top: 10px;
+  right: 0px;
+}
+
+#drop-down{
+  position: relative;
+  margin-bottom: 10px;
+  top: 10px;
+  right: 0px;
+}
+
+
+@import url('https://fonts.googleapis.com/css2?family=Righteous&family=Satisfy&display=swap');
+.current-name{
+  position: relative;
+  font-size: 20px;
+  color: black;
+  margin-bottom: 10px;
+  top: 145px;
+  right: 450px;
+  font-family: 'Righteous';
+}
+
+#welcome{
+  position: relative;
+  font-size: 20px;
+  color: rgb(101,52,202);
+  margin-bottom: 10px;
+  top: 175px;
+  right: 490px;
+  font-family: 'Righteous';
+}

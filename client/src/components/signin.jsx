@@ -14,7 +14,9 @@ function SignIn({setCurrentUser}){
      username:username,
      password
 }
-    console.log(user)
+console.log(username)
+console.log(user)
+
     const res = await fetch(`http://localhost:3000/signin`,{
         method: 'POST',
         headers: {
@@ -34,12 +36,17 @@ function SignIn({setCurrentUser}){
   }
 };
 
+
     return(
         <div>
             <h4 className="sign-in-out">Sign In</h4>
             <form onSubmit={handleSubmit}>
             <div className="ui input">
-                <input type="text" name='username' value={username} placeholder='Username' onChange={(e) => setUserName(e.target.value)}/>
+                <input type="text" name='username' 
+                value={username} 
+                placeholder='Username' 
+                onChange={(e) => setUserName(e.target.value)}
+                />
             </div>
             <br/>
             <br/>
