@@ -13,12 +13,11 @@ function Profile ({currentUser, setCurrentUser}){
             fetch(`http://localhost:3000/users/${userId}`)
             .then(res => res.json())
             .then(data => setUserProfile(data.subscriptions))
-            .then(render)
             }, []);
 
             // console.log(currentUser);
             // console.log(render)
-            // console.log(userProfile);
+            console.log(userProfile);
             // console.log(userProfile[0]);
             // console.log(userProfile[0].service);
             // console.log(userProfile[0].service.price);

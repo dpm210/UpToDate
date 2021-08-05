@@ -45,7 +45,7 @@ function NavBar({currentUser, setCurrentUser, handleSignOut, search, setSearch, 
                 placeholder="Search..."/>
                 </div>
                 <div>
-                <h3 id="welcome">Hi,</h3>
+                {/* <h3 id="welcome">Hi,</h3> */}
                 </div>
                  </>
                 ) :  ( 

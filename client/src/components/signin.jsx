@@ -5,8 +5,6 @@ function SignIn({setCurrentUser}){
     const [username, setUserName] = useState('')
     const [password, setPassword] = useState('')
     const [errors, setErrors] = useState(null)
-
-    document.title = "Sign In"
     
     const history = useHistory();
 
@@ -16,8 +14,8 @@ function SignIn({setCurrentUser}){
      username:username,
      password
 }
-console.log(username)
-console.log(user)
+// console.log(username)
+// console.log(user)
 
     const res = await fetch(`http://localhost:3000/signin`,{
         method: 'POST',
@@ -38,9 +36,17 @@ console.log(user)
   }
 };
 
-
     return(
         <div>
+        <div className="text-signin">
+            <h1>Already living the dream? Sign in!</h1>
+            <p>
+            Hate paying bills you forgot to cancel?
+            Take control of your subscriptions and be reminded before they hit your credit card.
+            </p> 
+        </div>
+        <div className="form-section">
+                <hr />
             <h4 className="sign-in-out">Sign In</h4>
             <form onSubmit={handleSubmit}>
             <div className="ui input">
@@ -60,6 +66,7 @@ console.log(user)
                 <button className="ui violet button" type='submit'>Sign In</button>
                 <p>{errors}</p>
             </form>
+        </div>
         </div>
     )
 }

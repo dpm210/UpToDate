@@ -161,10 +161,10 @@
 .current-name{
   position: relative;
   font-size: 20px;
-  color: black;
+  color: white;
   margin-bottom: 10px;
-  top: 145px;
-  right: 450px;
+  top: 100px;
+  right: 585px;
   font-family: 'Righteous';
 }
 
@@ -176,4 +176,22 @@
   top: 175px;
   right: 490px;
   font-family: 'Righteous';
+}
+
+.text-signin{
+  position: relative;
+  font-size: 25px;
+  color: rgb(101,52,202);
+  margin-bottom: 10px;
+  top: 50px;
+  text-indent: 50px;
+  text-justify: inter-word;
+}
+
+.form-section{
+  position: relative;
+  font-size: 20px;
+  color: black;
+  margin-bottom: 10px;
+  top: 150px;
 }
