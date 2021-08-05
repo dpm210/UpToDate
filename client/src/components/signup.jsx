@@ -51,6 +51,15 @@ const errorMes = signUpErrors.map((err) =>
 // console.log(errorMes)
     return(
         <div>
+        <div className="text-signin">
+        <h1>Manage multiple subscriptions.</h1>
+        <h3>Don't have an account? Sign Up!</h3>
+            <p>
+            Subscription management gets complicated when customers have multiple subscriptions. Make it easy with UpToDate Subscriptions. You can send a single consolidated invoice to a customer who's subscribed to multiple products or services as well as adjust their credits.
+            </p> 
+        </div>
+        <div className="form-section">
+        <hr />
         <h4 className="sign-in-out">Sign Up</h4>
             <form onSubmit={handleSignUp}>
             <div className="ui input">
@@ -66,6 +75,7 @@ const errorMes = signUpErrors.map((err) =>
              <button className="ui violet button" type='submit'>Sign Up</button>
              <div>{errorMes}</div>
          </form>
+    </div>
     </div>
  )
 }

@@ -1,5 +1,4 @@
 import {useEffect, useState} from 'react'
-import ServiceContainer from './servicesContainer';
 import MySubscription from './MySubscription';
 
 function Profile (){
@@ -32,21 +31,16 @@ function Profile (){
         <MySubscription
             sub={sub}
             key={sub.id}
+            setUserProfile={setUserProfile}
+            userProfile={userProfile}
     />)
-
-
-    // const test = currentUser.map(sub => 
-    //     <MySubscription
-    //         sub={sub}
-    //         key={sub.id}
-    // />)
 
     return(
        <div>
        <br />
        <br />
-        <div class="ui cards">
-        <div id="spent" class="ui card">
+        <div className="ui cards">
+        <div id="spent" className="ui card">
             <p>Monthly Spend</p>
             $ {add}
         <br />

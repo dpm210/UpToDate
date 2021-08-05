@@ -4,7 +4,7 @@ import image from '../images/up.png'
 import {useHistory} from 'react-router-dom'
 
 
-function NavBar({currentUser, setCurrentUser, handleSignOut, search, setSearch, filteredservice}){
+function NavBar({currentUser, setCurrentUser, search, setSearch, filteredservice}){
     
     const history = useHistory();
     
@@ -45,7 +45,7 @@ function NavBar({currentUser, setCurrentUser, handleSignOut, search, setSearch, 
                 placeholder="Search..."/>
                 </div>
                 <div>
-                <h3 id="welcome">Hi,</h3>
+                {/* <h3 id="welcome">Hi,</h3> */}
                 </div>
                  </>
                 ) :  ( 

@@ -1,11 +1,14 @@
-function MySubscription ({sub}){
+function MySubscription ({sub}, setUserProfile, userProfile) {
 
     function removeSub(){
         fetch(`http://localhost:3000/subscriptions/${sub.id}`, {
             method: "DELETE",
-            
         })
-    }
+    // }
+
+        .then(res => res.json())
+        .then(data => {setUserProfile(data)}
+)}
 
     return(
         <div className="service-cards">

@@ -1,7 +1,5 @@
 import React from "react";
-import {useState, useEffect} from "react"
 import ServiceCard from "./serviceCard"
-import NavBar from "./NavBar"
 
 function ServiceContainer ({user, currentUser, setFilter, filter, services, setServices}){
 
@@ -19,7 +17,8 @@ function ServiceContainer ({user, currentUser, setFilter, filter, services, setS
                 'Accept': 'application/json'
             },
             body: JSON.stringify(addSubData)
-        })  .then(res => res.json())
+        }) 
+             .then(res => res.json())
             .then(console.log(addSubData))
 }
     const serviceCards = services.map(service =>
@@ -33,11 +32,9 @@ function ServiceContainer ({user, currentUser, setFilter, filter, services, setS
         return(serviceobj.description)}
     )
 
-   const aa = services.filter(serviceobj => console.log(serviceobj.description));
+//    const a = catg.map(n => n == "Movies");
 
-    // {return(serviceobj)}
-    
-// console.log(aa);
+// console.log(a);
 // console.log(catg);
 
     return(
@@ -47,20 +44,18 @@ function ServiceContainer ({user, currentUser, setFilter, filter, services, setS
             </div> 
              <div>
             <select id="drop-down"className="ui simple dropdown item"
-             onChange={(e) => setFilter(aa)}>
+             onChange={(e) => setFilter(catg)}>
+
+            {/* onChange={(e) => {
+                const selectedItem = e.target.value;
+                setFilter(aa)
+            }}> */}
+
              {/* onChange={(e) => setSearch(filteredservice)}> */}
-                    <option>
-                        All
-                    </option>
-                        <option>
-                            Movie
-                        </option>
-                        <option>
-                            Music
-                        </option>
-                    <option>
-                        Games
-                    </option>
+                    <option value="All"> All </option>
+                    <option value="Movie"> Movie </option>
+                    <option value="Music"> Music </option>
+                    <option value="Games"> Games </option>
             </select>
             {serviceCards}
             </div>
