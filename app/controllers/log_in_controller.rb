@@ -7,7 +7,7 @@ class LogInController < ApplicationController
             render json: {id:user.id, username: user.username}
         else
             render json: {errors: user.errors.full_messages}, status: :unprocessable_entity
-        end 
+        end
     end
 
     def show

@@ -4,7 +4,7 @@ import ServiceCard from "./serviceCard"
 import NavBar from "./NavBar"
 
 function ServiceContainer ({user, currentUser, setFilter, filter, services, setServices}){
-
+    document.title = "Home"
         // console.log(services)
     function handleAdd(service_id){
         let addSubData = {
@@ -29,9 +29,9 @@ function ServiceContainer ({user, currentUser, setFilter, filter, services, setS
         handleAdd={handleAdd}
      />)
      
-    const catg = services.map(serviceobj => {
-        return(serviceobj.description)}
-    )
+    // const catg = services.map(serviceobj => {
+    //     return(serviceobj.description)}
+    // )
 
    const aa = services.filter(serviceobj => console.log(serviceobj.description));
 
@@ -47,20 +47,20 @@ function ServiceContainer ({user, currentUser, setFilter, filter, services, setS
             </div> 
              <div>
             <select id="drop-down"className="ui simple dropdown item"
-             onChange={(e) => setFilter(aa)}>
+            >
              {/* onChange={(e) => setSearch(filteredservice)}> */}
                     <option>
                         All
                     </option>
                         <option>
-                            Movie
+                            Movies
                         </option>
                         <option>
                             Music
                         </option>
-                    <option>
-                        Games
-                    </option>
+                        <option>
+                            Games
+                        </option>
             </select>
             {serviceCards}
             </div>

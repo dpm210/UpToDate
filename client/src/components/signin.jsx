@@ -5,6 +5,8 @@ function SignIn({setCurrentUser}){
     const [username, setUserName] = useState('')
     const [password, setPassword] = useState('')
     const [errors, setErrors] = useState(null)
+
+    document.title = "Sign In"
     
     const history = useHistory();
 

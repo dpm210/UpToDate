@@ -8,6 +8,8 @@ const [signUpErrors, setSignUpErrors] = useState([])
 
 const history = useHistory();
 
+document.title = "Sign Up"
+
 function usernameSubmit(e){
     setNewUser(e.target.value)
 }

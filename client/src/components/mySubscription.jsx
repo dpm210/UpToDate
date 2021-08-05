@@ -1,11 +1,14 @@
-function MySubscription ({sub}){
+import {useEffect, useState} from "react"
+function MySubscription ({sub, userProfile, setUserProfile, render, setRender}){
+    const [updatedPro, setUpdatedPro] = useState([])
 
     function removeSub(){
         fetch(`http://localhost:3000/subscriptions/${sub.id}`, {
-            method: "DELETE",
-            
+            method: "DELETE",    
         })
-    }
+        setRender(!render)
+        console.log(render)
+    };
 
     return(
         <div className="service-cards">
@@ -16,7 +19,7 @@ function MySubscription ({sub}){
                 <div className="meta"> $ {sub.service.price}</div>
                 <div className="description">{sub.service.description}</div>
                 <br />
-                <button className="ui violet button" onClick={removeSub}>Remove from My Subscriptions</button>
+                <button className="ui violet button" onClick={() => removeSub()}>Remove from My Subscriptions</button>
             </div>
         </div>
     </div>
