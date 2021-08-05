@@ -44,9 +44,9 @@ function App() {
     })
   },[])
 
-  const filteredservice = services.filter(service => {
-    return (service.name.toLowerCase().includes(search.toLowerCase()))
-  })
+  // const filteredservice = services.filter(service => {
+  //   return (service.name.toLowerCase().includes(search.toLowerCase()))
+  // })
 
   return (
   <div className="App">
@@ -58,7 +58,7 @@ function App() {
       search={search}
       services={services}
       setServices={setServices}
-      filteredservice={filteredservice}
+      // filteredservice={filteredservice}
       />
         <Switch>
           <Route exact path='/'>

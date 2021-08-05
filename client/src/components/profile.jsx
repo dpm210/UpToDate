@@ -1,8 +1,12 @@
 import {useEffect, useState} from 'react'
-import MySubscription from './MySubscription';
+import ServiceContainer from './servicesContainer';
+import MySubscription from './mySubscription';
 
-function Profile (){
+function Profile ({currentUser, setCurrentUser}){
     const [userProfile, setUserProfile] = useState([])
+    const [render, setRender] = useState(false)
+
+    document.title = "Profile"
 
         useEffect(() => {
             const userId = localStorage.getItem('user_id')
@@ -12,7 +16,8 @@ function Profile (){
             }, []);
 
             // console.log(currentUser);
-            // console.log(userProfile);
+            // console.log(render)
+            console.log(userProfile);
             // console.log(userProfile[0]);
             // console.log(userProfile[0].service);
             // console.log(userProfile[0].service.price);
@@ -31,10 +36,19 @@ function Profile (){
         <MySubscription
             sub={sub}
             key={sub.id}
-            setUserProfile={setUserProfile}
             userProfile={userProfile}
+            setUserProfile={setUserProfile}
+            render={render}
+            setRender={setRender}
     />)
 
+
+    // const test = currentUser.map(sub => 
+    //     <MySubscription
+    //         sub={sub}
+    //         key={sub.id}
+    // />)
+    
     return(
        <div>
        <br />
@@ -55,8 +69,7 @@ function Profile (){
         </div>
       </div>
     )
-}
-
+} 
 
 
 

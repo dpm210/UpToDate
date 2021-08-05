@@ -2,7 +2,7 @@ import React from "react";
 import ServiceCard from "./serviceCard"
 
 function ServiceContainer ({user, currentUser, setFilter, filter, services, setServices}){
-
+    document.title = "Home"
         // console.log(services)
     function handleAdd(service_id){
         let addSubData = {
@@ -28,9 +28,9 @@ function ServiceContainer ({user, currentUser, setFilter, filter, services, setS
         handleAdd={handleAdd}
      />)
      
-    const catg = services.map(serviceobj => {
-        return(serviceobj.description)}
-    )
+    // const catg = services.map(serviceobj => {
+    //     return(serviceobj.description)}
+    // )
 
 //    const a = catg.map(n => n == "Movies");
 
