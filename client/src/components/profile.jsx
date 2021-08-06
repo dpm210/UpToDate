@@ -1,12 +1,9 @@
 import {useEffect, useState} from 'react'
-import ServiceContainer from './servicesContainer';
 import MySubscription from './mySubscription';
 
-function Profile ({currentUser, setCurrentUser}){
+function Profile (){
     const [userProfile, setUserProfile] = useState([])
     const [render, setRender] = useState(false)
-
-    document.title = "Profile"
 
         useEffect(() => {
             const userId = localStorage.getItem('user_id')
@@ -15,16 +12,20 @@ function Profile ({currentUser, setCurrentUser}){
             .then(data => setUserProfile(data.subscriptions))
             }, []);
 
-            // console.log(currentUser);
-            // console.log(render)
-            console.log(userProfile);
-            // console.log(userProfile[0]);
-            // console.log(userProfile[0].service);
-            // console.log(userProfile[0].service.price);
-
     const sum = userProfile.map(serviceobj => {
         return(serviceobj.service.price)}
     )
+
+    const removeItem = (id) => {
+        let newProfile = [...userProfile]
+        newProfile = newProfile.filter((subs)=>{
+            console.log(subs);
+            return subs.id !== id
+         })
+         setUserProfile(newProfile)
+    //    console.log(description);
+       console.log(userProfile);
+    }
 
     let add = 0
     for (let i = 0; i < sum.length; i++) {
@@ -40,6 +41,7 @@ function Profile ({currentUser, setCurrentUser}){
             setUserProfile={setUserProfile}
             render={render}
             setRender={setRender}
+            removeItem={removeItem}
     />)
 
 

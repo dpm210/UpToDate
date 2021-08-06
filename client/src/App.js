@@ -13,9 +13,8 @@ function App() {
   const [currentUser, setCurrentUser] = useState({})
   // const [newUser, setNewUser] = useState({})
   // const [loggedIn, setLoggedIn] = useState(false)
-  const [search, setSearch] = useState("")
-
-  const [filter, setFilter] = useState("")
+  // const [search, setSearch] = useState("")
+  // const [filter, setFilter] = useState("")
 
   const [services, setServices] = useState([])
   const serviceUrl = 'http://localhost:3000/services'
@@ -26,12 +25,15 @@ function App() {
       .then(data => setServices(data))
       }, []);
 
+      // console.log(services);
 
   useEffect(() => {
     fetch('http://localhost:3000/users')
     .then(res => res.json())
     .then(userData => setUser(userData))
   }, [])
+// console.log(user);
+
 
   useEffect(() => {
     const userId = localStorage.getItem("user_id")
@@ -54,10 +56,10 @@ function App() {
       <NavBar 
       setCurrentUser={setCurrentUser} 
       currentUser={currentUser} 
-      setSearch={setSearch}
-      search={search}
       services={services}
       setServices={setServices}
+      // setSearch={setSearch}
+      // search={search}
       // filteredservice={filteredservice}
       />
         <Switch>
@@ -65,8 +67,6 @@ function App() {
             <ServicesContainer 
             user={user} 
             currentUser={currentUser} 
-            setFilter={setFilter}
-            filter={filter}
             services={services}
             setServices={setServices}
             />

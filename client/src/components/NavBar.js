@@ -38,12 +38,14 @@ function NavBar({currentUser, setCurrentUser, search, setSearch, filteredservice
                 </Link>
                 <button onClick={handleSignOut} id="nav-button" className='ui violet button'>Sign Out</button>
                
-                <div id="searchbar" className='ui input'> 
+               {/* //todo search bar */}
+                {/* <div id="searchbar" className='ui input'> 
                 <input onChange={(e) => setSearch(e.target.value)} 
                 type="text" 
                 value={search}
                 placeholder="Search..."/>
-                </div>
+                </div> */}
+
                 <div>
                 {/* <h3 id="welcome">Hi,</h3> */}
                 </div>

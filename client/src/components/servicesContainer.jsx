@@ -1,9 +1,14 @@
+// import e from "cors";
 import React from "react";
 import ServiceCard from "./serviceCard"
+// import {useState} from "react"
 
-function ServiceContainer ({user, currentUser, setFilter, filter, services, setServices}){
-    document.title = "Home"
+function ServiceContainer ({currentUser, services, setServices}){
+    // document.title = "Home"
         // console.log(services)
+//    const [filter, setfilter] = useState([])
+   
+
     function handleAdd(service_id){
         let addSubData = {
             "user_id": currentUser.id,
@@ -27,15 +32,16 @@ function ServiceContainer ({user, currentUser, setFilter, filter, services, setS
         key={service.id}
         handleAdd={handleAdd}
      />)
-     
-    // const catg = services.map(serviceobj => {
-    //     return(serviceobj.description)}
-    // )
 
-//    const a = catg.map(n => n == "Movies");
-
-// console.log(a);
-// console.log(catg);
+    const filterServices = (e) => {
+        let newFilteredItems = [...services]
+        newFilteredItems = newFilteredItems.filter(subs =>{
+            console.log(subs)
+            return subs.description === e.target.value
+        })
+            setServices(newFilteredItems)
+            console.log(newFilteredItems);
+       }
 
     return(
         <div>    
@@ -43,21 +49,20 @@ function ServiceContainer ({user, currentUser, setFilter, filter, services, setS
             <h1 id="h2">Filter by Category</h1>
             </div> 
              <div>
-            <select id="drop-down"className="ui simple dropdown item"
-             onChange={(e) => setFilter(catg)}>
-
-            {/* onChange={(e) => {
-                const selectedItem = e.target.value;
-                setFilter(aa)
-            }}> */}
-
-             {/* onChange={(e) => setSearch(filteredservice)}> */}
-                    <option value="All"> All </option>
-                    <option value="Movie"> Movie </option>
-                    <option value="Music"> Music </option>
-                    <option value="Games"> Games </option>
+            <select 
+            onChange={filterServices} 
+            id="drop-down"
+            className="ui simple dropdown item">
+                    <option 
+                    onChange={filterServices} value="All">All</option>
+                    <option onChange={filterServices} 
+                    value="Movies">Movies</option>
+                    <option onChange={filterServices} 
+                    value="Music">Music</option>
+                    <option onChange={filterServices} 
+                    value="Games">Games</option>
             </select>
-            {serviceCards}
+                {serviceCards}
             </div>
     </div>
     )
